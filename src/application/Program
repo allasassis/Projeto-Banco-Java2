@@ -1,0 +1,76 @@
+package application;
+
+import java.util.Scanner;
+
+import entities.Account;
+import entities.AccountMaster;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println(
+				"Você gostaria de criar uma conta para pessoa fisica ou juridica? (1 para FISICA e 2 para JURIDICA)");
+		int sn2 = sc.nextInt();
+		sc.nextLine();
+
+		if (sn2 == 2) {
+			System.out.println("Ótimo! Iremos então criar uma conta para pessoa JURÍDICA");
+			System.out.println("Digite seu nome: ");
+			String nome = sc.next();
+			System.out.println("Digite sua idade: ");
+			int idade = sc.nextInt();
+			System.out.println("Digite seu cpf: ");
+			String cpf = sc.next();
+			System.out.println("Digite o nome da empresa: ");
+			String businessName = sc.next();
+			System.out.println("Digite o CNPJ da empresa: ");
+			String cnpj = sc.next();
+			System.out.println("Você gostaria de adicionar um valor inicial na sua conta? (s/n)");
+			String sn3 = sc.next();
+			if (sn3.equals("s")) {
+				System.out.println("OK! Você escolheu fazer um depósito inicial! ");
+				System.out.println("Digite o valor inicial que deseja depositar: ");
+				double vlrInicial = sc.nextDouble();
+				AccountMaster account = new AccountMaster(nome, idade, cpf, vlrInicial, businessName, cnpj);
+				System.out.println(account);
+			} else if (sn3.equals("n")) {
+				System.out.println("OK! Você escolheu NÃO fazer um depósito inicial! ");
+				AccountMaster account = new AccountMaster(nome, idade, cpf, businessName, cnpj);
+				System.out.println(account);
+			}
+
+		} else if (sn2 == 1) {
+			System.out.println("Ótimo! Iremos então criar uma conta para pessoa FISICA");
+			System.out.println();
+			System.out.println("Digite seu nome: ");
+			String nome = sc.next();
+			System.out.println("Digite sua idade: ");
+			int idade = sc.nextInt();
+			System.out.println("Digite seu cpf: ");
+			String cpf = sc.next();
+			sc.nextLine();
+			System.out.println("Você gostaria de adicionar um valor inicial na sua conta? (s/n)");
+			String sn = sc.nextLine();
+			if (sn.equals("s")) {
+				System.out.println("OK! Você escolheu fazer um depósito inicial! ");
+				System.out.println("Digite o valor inicial que deseja depositar: ");
+				double vlrInicial = sc.nextDouble();
+				Account account = new Account(nome, idade, cpf, vlrInicial);
+				System.out.println(account);
+			} else {
+				System.out.println("OK! Você escolheu NÃO fazer um depósito inicial! ");
+				Account account = new Account(nome, idade, cpf);
+				System.out.println(account);
+			}
+
+		}
+		
+		System.out.println();
+		System.out.println("Sua conta foi criada com SUCESSO! Pode fazer movimentos como depósitos e saques livremente agora, parabéns!");
+		
+		sc.close();
+	}
+}
