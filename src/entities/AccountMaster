@@ -1,0 +1,45 @@
+package entities;
+
+public class AccountMaster extends Account{
+
+	private String businessName;
+	private String businessCnpj;
+	
+	public AccountMaster() {
+		
+	}
+	
+	public AccountMaster(String name, int age, String cpf, String businessName, String businessCnpj) {
+		super(name, age, cpf);
+		this.businessName = businessName;
+		this.businessCnpj = businessCnpj;
+	}
+	
+	public AccountMaster(String name, int age, String cpf, Double balance, String businessName, String businessCnpj) {
+		super(name, age, cpf, balance);
+		this.businessName = businessName;
+		this.businessCnpj = businessCnpj;
+	}
+
+	public String getBusinessName() {
+		return businessName;
+	}
+
+	public void setBusinessName(String businessName) {
+		this.businessName = businessName;
+	}
+
+	public String getBusinessCnpj() {
+		return businessCnpj;
+	}
+
+	public void setBusinessCnpj(String businessCnpj) {
+		this.businessCnpj = businessCnpj;
+	}
+	
+	@Override
+	public String toString() {
+		return "Dados da conta: Nome: " + name + " -- Idade: " + age + " -- CPF: " + cpf + " -- Saldo da conta: " + balance
+				+ "\nNome da empresa: " + businessName + " / CNPJ da empresa: " + businessCnpj;
+	}
+}
