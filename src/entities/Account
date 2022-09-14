@@ -1,0 +1,63 @@
+package entities;
+
+public class Account {
+
+	protected String name;
+	protected int age;
+	protected String cpf;
+	protected double balance;
+	
+	public Account() {
+		
+	}
+	
+	public Account(String name, int age, String cpf) {
+		this.name = name;
+		this.age = age;
+		this.cpf = cpf;
+	}
+	
+	public Account(String name, int age, String cpf, Double balance) {
+		this.name = name;
+		this.age = age;
+		this.cpf = cpf;
+		this.balance = balance;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	
+	public void deposit(double balance) {
+		this.balance += balance;
+	}
+	
+	public void withdraw(double balance) {
+		this.balance -= balance;
+	}
+
+	@Override
+	public String toString() {
+		return "Dados da conta: Nome: " + name + " / Idade: " + age + " / CPF: " + cpf + " / Saldo da conta: " + balance;
+	}
+}
